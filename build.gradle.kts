@@ -25,10 +25,12 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.flywaydb:flyway-core")
     implementation("org.flywaydb:flyway-database-postgresql")
     runtimeOnly("org.postgresql:postgresql")
     implementation("io.github.oshai:kotlin-logging-jvm:7.0.0")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.17")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -56,6 +58,8 @@ tasks.withType<JavaCompile>().configureEach {
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+    // SecurityProperties는 빈 토큰이면 기동에 실패하므로 테스트 실행에 값을 주입한다.
+    environment("FEEDFORGE_ACCESS_TOKEN", "test-access-token")
 }
 
 // Entity의 protected set과 지연 로딩 프록시를 위해 open으로 만든다.
