@@ -21,3 +21,6 @@ logging:
 feedforge:
   security:
     access-token: ${FEEDFORGE_ACCESS_TOKEN:}
+  collect:
+    zod:
+      enabled: ${FEEDFORGE_ZOD_ENABLED:true}

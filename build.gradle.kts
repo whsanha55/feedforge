@@ -31,6 +31,7 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     implementation("io.github.oshai:kotlin-logging-jvm:7.0.0")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.jsoup:jsoup:1.21.1")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.17")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
