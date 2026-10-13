@@ -3,11 +3,11 @@ package com.whsanha55.feedforge.scoring
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.whsanha55.feedforge.collect.CollectService
 import com.whsanha55.feedforge.collect.source.zod.ZodDeal
+import com.whsanha55.feedforge.feed.repository.FeedItemRepository
 import com.whsanha55.feedforge.global.config.JpaConfig
 import com.whsanha55.feedforge.profile.entity.InterestProfileEntity
 import com.whsanha55.feedforge.profile.enums.ProfileKindEnum
 import com.whsanha55.feedforge.profile.repository.InterestProfileRepository
-import com.whsanha55.feedforge.scoring.repository.FeedItemRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.data.Percentage
 import org.junit.jupiter.api.Test

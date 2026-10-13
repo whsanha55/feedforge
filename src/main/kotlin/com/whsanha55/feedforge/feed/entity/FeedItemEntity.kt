@@ -1,4 +1,4 @@
-package com.whsanha55.feedforge.scoring.entity
+package com.whsanha55.feedforge.feed.entity
 
 import com.whsanha55.feedforge.collect.entity.RawItemEntity
 import com.whsanha55.feedforge.global.base.BaseEntity
