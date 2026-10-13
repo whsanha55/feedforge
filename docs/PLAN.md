@@ -58,7 +58,7 @@ Telegram은 추천 항목 전체를 전달하는 수단이 아니라,
 | DB 격리 | 프로젝트별 role + database | 기존 cineseek 패턴 |
 | 스크래핑 | Jsoup | 정적 HTML 파싱 |
 | HTTP 클라이언트 | Spring RestClient | 외부 API 호출 |
-| Telegram | Bot API 직접 호출 | 전용 bot 신규 생성 |
+| Telegram | Bot API 직접 호출 | 전용 bot은 후순위 (TODO, 9.1절) |
 | 마이그레이션 | Flyway | 운영 ddl-auto=none |
 | 프런트엔드 | React 19 + Vite + TypeScript | 개인 컨벤션 확정 |
 | UI 스타일 | Tailwind CSS + shadcn/ui | 토큰은 CSS 변수로 관리 |
@@ -322,6 +322,7 @@ score(item)
 추천 조건
 
 - 관심 키워드 또는 관심 카테고리가 하나 이상 매칭되어야 한다.
+  단, 콜드스타트 온보딩(8.3) 동안에는 인기 기반 노출로 대체한다.
 - 총점이 웹 추천 임계치 이상이어야 한다.
 - 제외 규칙과 신선도 조건을 통과해야 한다.
 
@@ -335,7 +336,7 @@ score(item)
 - 동의어는 소규모 사전으로 시작
 - 소스 가중치는 v1에서 수동 관리
 
-임계치는 종자 프로필과 관찰 모드 결과를 보고 조정한다.
+임계치는 관찰 모드 결과와 실제 피드백 패턴을 보고 조정한다.
 
 ### 8.2. 피드백 학습
 
