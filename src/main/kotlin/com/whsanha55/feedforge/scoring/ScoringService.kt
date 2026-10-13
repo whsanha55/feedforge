@@ -3,11 +3,11 @@ package com.whsanha55.feedforge.scoring
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.whsanha55.feedforge.collect.entity.RawItemEntity
 import com.whsanha55.feedforge.collect.repository.RawItemRepository
+import com.whsanha55.feedforge.feed.entity.FeedItemEntity
+import com.whsanha55.feedforge.feed.repository.FeedItemRepository
 import com.whsanha55.feedforge.profile.entity.InterestProfileEntity
 import com.whsanha55.feedforge.profile.enums.ProfileKindEnum
 import com.whsanha55.feedforge.profile.repository.InterestProfileRepository
-import com.whsanha55.feedforge.scoring.entity.FeedItemEntity
-import com.whsanha55.feedforge.scoring.repository.FeedItemRepository
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
