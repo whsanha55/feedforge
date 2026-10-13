@@ -1,6 +1,7 @@
 package com.whsanha55.feedforge.collect
 
 import com.whsanha55.feedforge.collect.source.zod.ZodCollector
+import com.whsanha55.feedforge.scoring.ScoringService
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
@@ -12,6 +13,7 @@ private val log = KotlinLogging.logger {}
 class CollectScheduler(
     private val zodCollector: ZodCollector,
     private val collectService: CollectService,
+    private val scoringService: ScoringService,
     private val properties: CollectProperties,
 ) {
 
@@ -31,6 +33,13 @@ class CollectScheduler(
             collectService.saveZodDeals(deals)
         } catch (e: Exception) {
             log.warn(e) { "zod 수집 실패. 다음 주기에 재시도한다" }
+        }
+
+        // 수집 주기에 신선도 기간 내 항목을 몰아서 재평가한다 (PLAN 8.5).
+        try {
+            scoringService.evaluateRecentItems()
+        } catch (e: Exception) {
+            log.warn(e) { "스코어링 실패. 다음 주기에 재시도한다" }
         }
     }
 }
